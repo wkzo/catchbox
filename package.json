@@ -1,0 +1,22 @@
+{
+  "name": "catchbox",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @quit/web --filter @quit/api --filter @quit/mail-worker dev",
+    "build": "pnpm -r build",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,css}\"",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:migrate": "pnpm --filter @quit/api db:migrate",
+    "db:seed": "pnpm --filter @quit/api db:seed",
+    "owner:create": "pnpm --filter @quit/api owner:create"
+  },
+  "devDependencies": {
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.66.0"
+  }
+}

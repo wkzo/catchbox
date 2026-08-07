@@ -1,0 +1,42 @@
+{
+  "name": "@catchbox/mail-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "latest",
+    "@aws-sdk/client-sesv2": "latest",
+    "@catchbox/config": "workspace:*",
+    "@catchbox/db": "workspace:*",
+    "@catchbox/store": "workspace:*",
+    "@catchbox/types": "workspace:*",
+    "bullmq": "latest",
+    "drizzle-orm": "latest",
+    "ioredis": "latest",
+    "libmime": "latest",
+    "mailsplit": "latest",
+    "nanoid": "latest",
+    "nodemailer": "latest",
+    "postal-mime": "latest",
+    "postgres": "latest",
+    "sanitize-html": "latest",
+    "smtp-server": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/nodemailer": "latest",
+    "@types/sanitize-html": "latest",
+    "@types/smtp-server": "^3.5.13",
+    "tsx": "latest",
+    "typescript": "^6.0.0",
+    "vitest": "latest"
+  }
+}

@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+.env
+.env.local
+*.log
+coverage
+.DS_Store
+playwright-report
+test-results
+*.tsbuildinfo
+.data
+infrastructure/dkim/*.key
+!infrastructure/dkim/*.public.key
+.qoder
+agent.md
+.qoder/

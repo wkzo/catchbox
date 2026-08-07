@@ -1,0 +1,8 @@
+FROM alpine:3.20
+RUN apk add --no-cache postfix postfix-pcre ca-certificates && \
+    adduser -D -u 5000 vmail && mkdir -p /var/spool/vmail && chown vmail:vmail /var/spool/vmail
+COPY infrastructure/postfix/main.cf /etc/postfix/main.cf
+COPY infrastructure/postfix/virtual-mailbox-maps /etc/postfix/virtual-mailbox-maps
+RUN postconf -e "virtual_mailbox_base=/var/spool/vmail"
+EXPOSE 25
+CMD ["sh", "-c", "postfix start-fg"]

@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* QUIT design tokens — refined editorial utility                     */
+/* Warm off-white paper, graphite ink, burnt-sienna accent            */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --bg: #f6f4ef;
+  --surface: #fbfaf7;
+  --surface-2: #efece5;
+  --surface-3: #e7e3da;
+  --ink: #1b1915;
+  --ink-soft: #3f3b34;
+  --muted: #736d62;
+  --faint: #9b948a;
+  --line: #e1ddd3;
+  --line-strong: #cfc9bc;
+  --accent: #b44e1f;
+  --accent-hover: #9c421a;
+  --accent-soft: #f3e0d5;
+  --accent-ink: #fbfaf7;
+  --danger: #b3261e;
+  --danger-soft: #f6dedc;
+  --ok: #3c7a45;
+  --warn: #9a6b15;
+  --selection: #e8d9ce;
+}
+
+.dark {
+  --bg: #131210;
+  --surface: #1a1815;
+  --surface-2: #211f1a;
+  --surface-3: #2a2721;
+  --ink: #eae5db;
+  --ink-soft: #cfc9bc;
+  --muted: #98917f;
+  --faint: #6e675a;
+  --line: #2b2822;
+  --line-strong: #3c382f;
+  --accent: #d97a45;
+  --accent-hover: #e08a58;
+  --accent-soft: #33231a;
+  --accent-ink: #14100c;
+  --danger: #e07b72;
+  --danger-soft: #3a201d;
+  --ok: #7dbb85;
+  --warn: #d2a34f;
+  --selection: #3c2b20;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-panel: 6px;
+  --radius-field: 4px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: -0.006em;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+* {
+  border-color: var(--line);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* thin scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+/* reading pane rendered email body (inside sandbox iframe via srcDoc) */
+.mail-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  word-break: break-word;
+}
+.mail-body a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.mail-body blockquote {
+  border-left: 2px solid var(--line-strong);
+  margin: 0.5em 0;
+  padding-left: 0.9em;
+  color: var(--muted);
+}
+.mail-body pre {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--surface-2);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mail-body img {
+  max-width: 100%;
+  height: auto;
+}
+.mail-body table {
+  max-width: 100%;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-toast-in {
+  animation: toast-in 140ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

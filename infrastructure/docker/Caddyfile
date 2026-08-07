@@ -1,0 +1,19 @@
+# Caddy reverse proxy. TLS is automatic via Let's Encrypt when APP_URL is https.
+{
+	email admin@example.com
+}
+
+{$APP_URL:80} {
+	handle /api/* {
+		reverse_proxy api:8800
+	}
+	handle {
+		reverse_proxy web:80
+	}
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+}

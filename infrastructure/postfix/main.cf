@@ -1,0 +1,49 @@
+# Postfix main.cf for example.com
+# Catch-all inbound -> LMTP (mail-worker), restricted outbound relay.
+
+smtpd_banner = $myhostname ESMTP $mail_name
+biff = no
+append_dot_mydomain = no
+
+myhostname = mail.example.com
+mydomain = example.com
+myorigin = $mydomain
+mydestination = localhost
+
+# Only localhost may relay. External hosts may only deliver TO our domain.
+mynetworks = 127.0.0.0/8 [::1]/128
+smtpd_relay_restrictions = permit_mynetworks, reject_unauth_destination
+smtpd_recipient_restrictions =
+    permit_mynetworks,
+    reject_unauth_destination,
+    reject_non_fqdn_recipient,
+    reject_unknown_recipient_domain
+
+# TLS
+smtpd_tls_cert_file = /etc/letsencrypt/live/mail.example.com/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/mail.example.com/privkey.pem
+smtpd_tls_security_level = may
+smtpd_tls_loglevel = 1
+smtp_tls_security_level = may
+
+# HELO / rDNS consistency
+smtp_helo_name = mail.example.com
+smtpd_helo_required = yes
+
+# Catch-all: accept any local part for example.com, hand to worker LMTP.
+virtual_mailbox_domains = example.com
+virtual_mailbox_maps = regexp:/etc/postfix/virtual-mailbox-maps
+virtual_transport = lmtp:inet:127.0.0.1:10025
+virtual_minimum_uid = 100
+
+# Limits
+message_size_limit = 26214400
+mailbox_size_limit = 0
+
+# DKIM via OpenDKIM milter (outbound signing) — worker also signs; keep one.
+# milter_protocol = 6
+# milter_default_action = accept
+# smtpd_milters = inet:localhost:8891
+# non_smtpd_milters = inet:localhost:8891
+
+compatibility_level = 3.6

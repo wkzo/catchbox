@@ -1,0 +1,2 @@
+# Catch-all: accept every local part for example.com and route to LMTP transport.
+/^([a-zA-Z0-9._%+-]+)@quit\.mom$/ $1@example.com

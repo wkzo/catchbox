@@ -1,0 +1,47 @@
+{
+  "name": "@catchbox/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:generate": "drizzle-kit generate",
+    "owner:create": "tsx scripts/create-owner.ts"
+  },
+  "dependencies": {
+    "@fastify/cookie": "latest",
+    "@fastify/cors": "latest",
+    "@fastify/multipart": "latest",
+    "@fastify/rate-limit": "latest",
+    "@aws-sdk/client-s3": "latest",
+    "@aws-sdk/s3-request-presigner": "latest",
+    "@node-rs/argon2": "latest",
+    "@catchbox/config": "workspace:*",
+    "@catchbox/db": "workspace:*",
+    "@catchbox/types": "workspace:*",
+    "bullmq": "latest",
+    "drizzle-orm": "latest",
+    "fastify": "latest",
+    "ioredis": "latest",
+    "nanoid": "latest",
+    "nodemailer": "latest",
+    "otpauth": "latest",
+    "postgres": "latest",
+    "zod": "latest",
+    "@catchbox/store": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/nodemailer": "latest",
+    "drizzle-kit": "latest",
+    "tsx": "latest",
+    "typescript": "^6.0.0",
+    "vitest": "latest"
+  }
+}
