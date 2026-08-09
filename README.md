@@ -8,10 +8,10 @@ A self-hosted, catch-all mail server with a realtime web client, unlimited auto-
 
 [Website](https://quit.mom/catchbox/) · [Quick start](#quick-start) · [Production deployment](#production-deployment) · [How it works](#how-it-works) · [Contributing](#contributing)
 
-![License](https://img.shields.io/github/license/dakosa/catchbox)
+![License](https://img.shields.io/github/license/wkzo/catchbox)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ed?logo=docker&logoColor=white)
-![Last commit](https://img.shields.io/github/last-commit/dakosa/catchbox)
+![Last commit](https://img.shields.io/github/last-commit/wkzo/catchbox)
 
 🚀 Production-ready · 🔒 Private by design · ⚡ Realtime UI · ✉️ DKIM out of the box · 💎 Clean interface
 
@@ -40,7 +40,7 @@ Point an MX record at your server and **everything** sent to `*@yourdomain.com` 
 
 ```bash
 # 1. Clone & install
-git clone https://github.com/dakosa/catchbox.git
+git clone https://github.com/wkzo/catchbox.git
 cd catchbox
 pnpm install
 
